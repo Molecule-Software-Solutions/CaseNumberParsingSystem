@@ -13,19 +13,19 @@ namespace CaseNumberParsingSystem
         /// </summary>
         public static string DefaultCaseType { get; set; }
 
-        public string ParseCaseNumber(ICaseNumber caseNumber, bool forceDefault)
+        public static string ParseCaseNumber(ICaseNumber caseNumber, bool forceDefault)
         {
-
+            throw new NotImplementedException();
         }
 
-        public string ParseCaseNumber(ICaseNumber caseNumber, bool forceDefault, bool fullYear)
+        public static string ParseCaseNumber(ICaseNumber caseNumber, bool forceDefault, bool fullYear)
         {
-
+            throw new NotImplementedException();
         }
 
-        public string ParseCaseNumber(ICaseNumber caseNumber, bool forceDefault, bool fullYear, bool ForceSixDigitSequence)
+        public static string ParseCaseNumber(ICaseNumber caseNumber, bool forceDefault, bool fullYear, bool ForceSixDigitSequence)
         {
-
+            throw new NotImplementedException();
         }
 
         /// <summary>

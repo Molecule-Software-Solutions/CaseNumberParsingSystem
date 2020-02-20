@@ -1,6 +1,6 @@
 ﻿namespace CaseNumberParsingSystem
 {
-    interface ICaseNumber
+    public interface ICaseNumber
     {
         int Year { get; set; }
         string CaseType { get; set; }
