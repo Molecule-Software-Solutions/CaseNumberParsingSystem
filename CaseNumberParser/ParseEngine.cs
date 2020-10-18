@@ -9,8 +9,8 @@ namespace CaseNumberParser
             try
             {
                 string year = ReturnYear(input, yearFormat);
-                string caseType = ReturnCaseType(input, caseFormat);
-                string sequence = ReturnSequence(input, caseFormat, yearFormat);
+                string caseType = ReturnCaseType(input, yearFormat, caseFormat);
+                string sequence = ReturnSequence(input, yearFormat, caseFormat);
                 if (string.IsNullOrEmpty(year) || string.IsNullOrEmpty(caseType) || string.IsNullOrEmpty(sequence))
                     return string.Empty;
 
@@ -36,22 +36,40 @@ namespace CaseNumberParser
             }
         }
 
-        private string ReturnCaseType(string input, CaseNumberFormat format)
+        private string ReturnCaseType(string input, YearFormat yearFormat, CaseNumberFormat caseNumberFormat)
         {
-            switch (format)
+            switch (yearFormat)
             {
-                case CaseNumberFormat.OneDigitCaseType:
-                    return input.Substring(3, 1).ToUpper(); 
-                case CaseNumberFormat.TwoDigitCaseType:
-                    return input.Substring(3, 2).ToUpper();
-                case CaseNumberFormat.ThreeDigitCaseType:
-                    return input.Substring(3, 3).ToUpper();
+                case YearFormat.FourDigit:
+                    switch (caseNumberFormat)
+                    {
+                        case CaseNumberFormat.OneDigitCaseType:
+                            return input.Substring(5, 1).ToUpper();
+                        case CaseNumberFormat.TwoDigitCaseType:
+                            return input.Substring(5, 2).ToUpper();
+                        case CaseNumberFormat.ThreeDigitCaseType:
+                            return input.Substring(5, 3).ToUpper();
+                        default:
+                            return string.Empty;
+                    }
+                case YearFormat.TwoDigit:
+                    switch (caseNumberFormat)
+                        {
+                            case CaseNumberFormat.OneDigitCaseType:
+                                return input.Substring(3, 1).ToUpper(); 
+                            case CaseNumberFormat.TwoDigitCaseType:
+                                return input.Substring(3, 2).ToUpper();
+                            case CaseNumberFormat.ThreeDigitCaseType:
+                                return input.Substring(3, 3).ToUpper();
+                            default:
+                                return string.Empty; 
+                        }
                 default:
                     return string.Empty; 
             }
         }
 
-        private string ReturnSequence(string input, CaseNumberFormat caseNumberFormat, YearFormat yearFormat)
+        private string ReturnSequence(string input, YearFormat yearFormat, CaseNumberFormat caseNumberFormat)
         {
             switch (yearFormat)
             {
@@ -59,11 +77,11 @@ namespace CaseNumberParser
                     switch (caseNumberFormat)
                     {
                         case CaseNumberFormat.OneDigitCaseType:
-                            return input.Substring(6).PadLeft(6, '0'); 
+                            return input.Substring(5).PadLeft(6, '0'); 
                         case CaseNumberFormat.TwoDigitCaseType:
-                            return input.Substring(7).PadLeft(6, '0');
+                            return input.Substring(6).PadLeft(6, '0');
                         case CaseNumberFormat.ThreeDigitCaseType:
-                            return input.Substring(8).PadLeft(6, '0');
+                            return input.Substring(7).PadLeft(6, '0');
                         default:
                             return string.Empty; 
                     }
@@ -71,11 +89,11 @@ namespace CaseNumberParser
                     switch (caseNumberFormat)
                     {
                         case CaseNumberFormat.OneDigitCaseType:
-                            return input.Substring(8).PadLeft(8, '0'); 
+                            return input.Substring(7).PadLeft(8, '0'); 
                         case CaseNumberFormat.TwoDigitCaseType:
-                            return input.Substring(9).PadLeft(9, '0');
+                            return input.Substring(8).PadLeft(9, '0');
                         case CaseNumberFormat.ThreeDigitCaseType:
-                            return input.Substring(10).PadLeft(10, '0');
+                            return input.Substring(9).PadLeft(10, '0');
                         default:
                             return string.Empty; 
                     }

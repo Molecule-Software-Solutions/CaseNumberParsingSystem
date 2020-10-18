@@ -1,4 +1,4 @@
-﻿namespace CaseNumberParser.DNC
+﻿namespace CaseNumberParser
 {
     public enum CaseNumberFormat
     {
