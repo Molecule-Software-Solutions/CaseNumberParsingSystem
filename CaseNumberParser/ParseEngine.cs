@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CaseNumberParser.DNC
+namespace CaseNumberParser
 {
     public class ParseEngine
     {
@@ -59,11 +59,11 @@ namespace CaseNumberParser.DNC
                     switch (caseNumberFormat)
                     {
                         case CaseNumberFormat.OneDigitCaseType:
-                            return input.Substring(6).PadLeft(6, '0'); 
+                            return input.Substring(5).PadLeft(6, '0'); 
                         case CaseNumberFormat.TwoDigitCaseType:
-                            return input.Substring(7).PadLeft(6, '0');
+                            return input.Substring(5).PadLeft(7, '0');
                         case CaseNumberFormat.ThreeDigitCaseType:
-                            return input.Substring(8).PadLeft(6, '0');
+                            return input.Substring(5).PadLeft(8, '0');
                         default:
                             return string.Empty; 
                     }
@@ -71,11 +71,11 @@ namespace CaseNumberParser.DNC
                     switch (caseNumberFormat)
                     {
                         case CaseNumberFormat.OneDigitCaseType:
-                            return input.Substring(8).PadLeft(8, '0'); 
+                            return input.Substring(7).PadLeft(8, '0'); 
                         case CaseNumberFormat.TwoDigitCaseType:
-                            return input.Substring(9).PadLeft(9, '0');
+                            return input.Substring(7).PadLeft(9, '0');
                         case CaseNumberFormat.ThreeDigitCaseType:
-                            return input.Substring(10).PadLeft(10, '0');
+                            return input.Substring(7).PadLeft(10, '0');
                         default:
                             return string.Empty; 
                     }
