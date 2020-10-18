@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>MoleculeSoftware.Packages.CaseNumberParser.Core</AssemblyName>
+    <Version>1.0.0.0</Version>
+    <Authors>Joshua H. Santiago</Authors>
+    <Company>Molecule Software</Company>
+    <Product>Case Number Parser Core</Product>
+    <Description>Case number parsing system for Molecule Software Applications</Description>
+    <Copyright>Developer claims no copyright</Copyright>
+    <PackageReleaseNotes>NOTE: This package, and all other packages from MoleculeSoftware are designed to work specifically with software packages in our catalog. Usage outside of the catalog is not guaranteed, and some functionality is specific to our use case. While anyone is free to download and use these packages, they have not been designed for use in other systems.</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
