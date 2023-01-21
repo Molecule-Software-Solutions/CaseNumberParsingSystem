@@ -38,9 +38,33 @@ public static class ParseEngine
         switch (format)
         {
             case YearFormat.TwoDigit:
-                return input.Substring(0, 2); 
+                {
+                    if (input[2] != 32)
+                        return string.Empty; 
+
+                    for(int i = 0; i < 2; i++)
+                    {
+                        if (input[i] < 48 || input[i] > 57)
+                        {
+                            return string.Empty;
+                        }
+                    }
+                    return input.Substring(0, 2); 
+                }
             case YearFormat.FourDigit:
-                return input.Substring(0, 4); 
+                {
+                    if (input[4] != 32)
+                        return string.Empty;
+
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (input[i] < 48 || input[i] > 57)
+                        {
+                            return string.Empty;
+                        }
+                    }
+                    return input.Substring(0, 4); 
+                }
             default:
                 return string.Empty; 
         }
@@ -54,11 +78,47 @@ public static class ParseEngine
                 switch (caseNumberFormat)
                 {
                     case CaseNumberFormat.OneDigitCaseType:
-                        return input.Substring(5, 1).ToUpper();
+                        {
+                            if (input[6] != 32)
+                                return string.Empty;
+
+                            if(input.Substring(5, 1)[0] < 97 && input.Substring(5, 1)[0] > 122 && 
+                                input.Substring(5, 1)[0] < 65 && input.Substring(5, 1)[0] > 90)
+                            {
+                                return string.Empty;
+                            }
+                            return input.Substring(5, 1).ToUpper();
+                        }
                     case CaseNumberFormat.TwoDigitCaseType:
-                        return input.Substring(5, 2).ToUpper();
+                        {
+                            if (input[7] != 32)
+                                return string.Empty;
+
+                            for (int i = 5; i < 7; i++)
+                            {
+                                if (input[i] < 97 && input[i] > 122 && 
+                                    input[i] < 65 && input[i] > 90)
+                                {
+                                    return string.Empty; 
+                                }
+                            }
+                            return input.Substring(5, 2).ToUpper(); 
+                        }
                     case CaseNumberFormat.ThreeDigitCaseType:
-                        return input.Substring(5, 3).ToUpper();
+                        {
+                            if (input[8] != 32)
+                                return string.Empty;
+
+                            for (int i = 5; i < 8; i++)
+                            {
+                                if (input[i] < 97 && input[i] > 122 &&
+                                    input[i] < 65 && input[i] > 90)
+                                {
+                                    return string.Empty;
+                                }
+                            }
+                            return input.Substring(5, 3).ToUpper();
+                        }
                     default:
                         return string.Empty;
                 }
@@ -66,11 +126,47 @@ public static class ParseEngine
                 switch (caseNumberFormat)
                     {
                         case CaseNumberFormat.OneDigitCaseType:
-                            return input.Substring(3, 1).ToUpper(); 
+                        {
+                            if (input[4] != 32)
+                                return string.Empty;
+
+                            if (input.Substring(3, 1)[0] < 97 && input.Substring(3, 1)[0] > 122 &&
+                                input.Substring(3, 1)[0] < 65 && input.Substring(3, 1)[0] > 90)
+                            {
+                                return string.Empty;
+                            }
+                            return input.Substring(3, 1).ToUpper();
+                        }
                         case CaseNumberFormat.TwoDigitCaseType:
-                            return input.Substring(3, 2).ToUpper();
+                        {
+                            if (input[5] != 32)
+                                return string.Empty;
+
+                            for (int i = 3; i < 5; i++)
+                            {
+                                if (input[i] < 97 && input[i] > 122 &&
+                                    input[i] < 65 && input[i] > 90)
+                                {
+                                    return string.Empty;
+                                }
+                            }
+                            return input.Substring(3, 2);
+                        }
                         case CaseNumberFormat.ThreeDigitCaseType:
-                            return input.Substring(3, 3).ToUpper();
+                        {
+                            if (input[6] != 32)
+                                return string.Empty;
+
+                            for (int i = 3; i < 6; i++)
+                            {
+                                if (input[i] < 97 && input[i] > 122 &&
+                                    input[i] < 65 && input[i] > 90)
+                                {
+                                    return string.Empty;
+                                }
+                            }
+                            return input.Substring(3, 3);
+                        }
                         default:
                             return string.Empty; 
                     }
@@ -99,11 +195,11 @@ public static class ParseEngine
                 switch (caseNumberFormat)
                 {
                     case CaseNumberFormat.OneDigitCaseType:
-                        return input.Substring(7).PadLeft(8, '0'); 
+                        return input.Substring(7).PadLeft(6, '0'); 
                     case CaseNumberFormat.TwoDigitCaseType:
-                        return input.Substring(8).PadLeft(9, '0');
+                        return input.Substring(8).PadLeft(6, '0');
                     case CaseNumberFormat.ThreeDigitCaseType:
-                        return input.Substring(9).PadLeft(10, '0');
+                        return input.Substring(9).PadLeft(6, '0');
                     default:
                         return string.Empty; 
                 }
