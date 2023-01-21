@@ -1,8 +1,7 @@
-﻿namespace CaseNumberParser
+﻿namespace CaseNumberParser;
+
+public enum YearFormat
 {
-    public enum YearFormat
-    {
-        TwoDigit,
-        FourDigit
-    }
+    TwoDigit,
+    FourDigit
 }

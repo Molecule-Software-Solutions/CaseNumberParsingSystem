@@ -1,9 +1,8 @@
-﻿namespace CaseNumberParser
+﻿namespace CaseNumberParser;
+
+public enum CaseNumberFormat
 {
-    public enum CaseNumberFormat
-    {
-        OneDigitCaseType,
-        TwoDigitCaseType,
-        ThreeDigitCaseType
-    }
+    OneDigitCaseType,
+    TwoDigitCaseType,
+    ThreeDigitCaseType
 }
